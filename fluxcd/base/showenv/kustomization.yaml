@@ -7,7 +7,7 @@ resources:
 - service.yaml
 
 configMapGenerator:
-  - name: helloworld-config
+- name: showenv-config
 
 secretGenerator:
-  - name: helloworld-secret
+- name: showenv-secret

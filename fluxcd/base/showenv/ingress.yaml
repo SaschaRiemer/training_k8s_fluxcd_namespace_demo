@@ -1,0 +1,21 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: showenv-ingress
+spec:
+  tls:
+  - hosts:
+    - showenv.127.0.0.1.nip.io
+  rules:
+  - host: showenv.127.0.0.1.nip.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: showenv
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  

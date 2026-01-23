@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: demo
+
+resources:
+- ../../base/showenv
+
+images:
+- name: showenv
+  newName: ghcr.io/jambit-k8s-training/k8s-training-showenv
+  newTag: 5e3875f2c7cfed4351f16edf482674452fc0ee93
+
+patches:
+- patch: |-
+    - op: add
+      path: /spec/rules/0/host
+      value: showenv.training.jambit.space
+    - op: copy
+      from: /spec/rules/0/host
+      path: /spec/tls/0/hosts/0
+    - op: remove
+      path: /spec/tls/0/hosts/1
+  target:
+    kind: Ingress
+    name: showenv-ingress
+- path: secret.yaml
+- path: configmap.yaml

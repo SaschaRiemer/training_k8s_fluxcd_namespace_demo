@@ -5,3 +5,29 @@ namespace: demo
 
 resources:
 - ../../base/helloworld
+
+configMapGenerator:
+  - name: helloworld-config
+    behavior: replace
+    envs:
+    - config.env
+
+secretGenerator:
+  - name: helloworld-secret
+    behavior: replace
+    envs:
+    - secrets.env
+
+patches:
+  - patch: |-
+      - op: add
+        path: /spec/rules/0/host
+        value: helloworld.training.jambit.space
+      - op: copy
+        from: /spec/rules/0/host
+        path: /spec/tls/0/hosts/0
+      - op: remove
+        path: /spec/tls/0/hosts/1
+    target:
+      kind: Ingress
+      name: helloworld
