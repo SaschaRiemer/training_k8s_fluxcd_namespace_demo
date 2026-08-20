@@ -23,21 +23,6 @@ configMapGenerator:
       literals:
         - NAME=local
 secretGenerator:
-    - name: ENC[AES256_GCM,data:a+Zhq1VAtdX1tdcVzF0pOqs=,iv:bEixRw8itMxk3hqkXQ2pELcibBLSaqYPZwtKnsP4S0c=,tag:NE6pIXpC7fLL/T9rkAwBdQ==,type:str]
+    - name: helloworld-secret
       literals:
-        - ENC[AES256_GCM,data:66yVa6EOj/qwF+sJ00RKCO0=,iv:iRoX9aDVZB4sH/TdOPxCP0RqNXoPxczGGNOF5ALUCNw=,tag:hztuFOAfwiswdGoQRcwNIw==,type:str]
-sops:
-    age:
-        - enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqaTJyUWlrZERObTlkc3Rr
-            RUdweURtMWpwUC9kRXpsS0x1eXMweTRZeDBNCndjcW5IeGZUQzZrdnU4TkpsNms0
-            K3Z3VGpGbTZTUHBxN1hTUHc2alU4R3cKLS0tIFNNV0YwL1hlTE1qRTBqZ1U4amtz
-            SFptRDQra3Z5aU8rU0IwczIyVExPaGsK9iN0YcZl6oEDowRxifAzRt/qpN4A8H+i
-            DfsLye6Ll/pNiboe/2dST535mqIYeqtPm8OZcokJpZqqsQLxc9bV1Q==
-            -----END AGE ENCRYPTED FILE-----
-          recipient: age19kyyjnd32na99sn2d4ktqddykrmnghu6tk34fsy9l9duyu2g95ssypk7vy
-    encrypted_regex: ^(secretGenerator)$
-    lastmodified: "2026-08-20T13:47:04Z"
-    mac: ENC[AES256_GCM,data:0J86TDsTXwtRLPJdMUfYiZbERcUIXIQmEwet4vAE6llDpy9QVLZIYdM4FwA8kXUNll9EtwtS8WmOCYGRZQh7mp67uLC7HVJxDgFRbzzrhq8xHOyPgWn9W+kBhLmc+d1aSiUIiCwYKwty5y8alYET09mNML7hdCFppN42dUnN2R8=,iv:VrYdUhq5C2GnT6vpfnDcgFbnoxfBvzxFwPzGpey6cTQ=,tag:A17o0mpblsA2PrcZvyu7Sw==,type:str]
-    version: 3.13.2
+        - SECRETNAME=WORLD2
